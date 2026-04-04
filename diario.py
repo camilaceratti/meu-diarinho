@@ -12,5 +12,5 @@ with open("diario.txt", "a", encoding="utf-8") as arquivo:
 
 
 
-print("\n✨ Seu sentimento foi guardado com carinho 💕")
-print("🌷 Volte sempre, esse cantinho é seu 💖")
+print("\n✨ Registrado amore 💕")
+print("🌷 Até mais 💖")
