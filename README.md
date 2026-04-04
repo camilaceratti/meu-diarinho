@@ -1,8 +1,8 @@
 🌸 meu diarinho
 
-só um testezinho em phyton pra salvar texto com data
+só um testezinho em phyton pra salvar texto com data e treinar interface
 
-roda com python diario.py
+roda com python diario_app.py
 
 o que ele faz
 
