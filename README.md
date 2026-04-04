@@ -1,12 +1,8 @@
 🌸 meu diarinho
 
-um lugarzinho simples pra guardar como tô me sentindo no dia
+só um testezinho em phyton pra salvar texto com data
 
-fiz em python só pra praticar mesmo, mas acabou ficando bem útil
-
-como usar
-
-python diario.py
+roda com python diario.py
 
 o que ele faz
 você escreve como tá se sentindo
