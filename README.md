@@ -16,4 +16,4 @@ como você está hoje?
 
 feliz e cansada
 
-💌 guardado
+💌 registrado amore
