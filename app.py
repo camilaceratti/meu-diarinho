@@ -24,6 +24,7 @@ def salvar():
         f.write(texto + "\n")
 
     entrada.delete("1.0", tk.END)
+    label_contador.config(text="Caracteres: 0")
     messagebox.showinfo("🌸 meu diarinho", "registrado\naté mais 💖")
 
 
@@ -33,23 +34,32 @@ def alternar_tema():
 
     if tema_escuro:
         janela.config(bg="#2b1b24")
+        frame_principal.config(bg="#2b1b24")
+        frame_esquerda.config(bg="#2b1b24")
+        frame_centro.config(bg="#2b1b24")
+        frame_direita.config(bg="#2b1b24")
+
         titulo.config(bg="#2b1b24", fg="#ffd6e7")
         subtitulo.config(bg="#2b1b24", fg="#ffd6e7")
         entrada.config(bg="#3a2430", fg="white", insertbackground="white")
+        label_contador.config(bg="#2b1b24", fg="#ffd6e7")
         label_humor.config(bg="#2b1b24", fg="#ffd6e7")
     else:
         janela.config(bg="#ffd6e7")
+        frame_principal.config(bg="#ffd6e7")
+        frame_esquerda.config(bg="#ffd6e7")
+        frame_centro.config(bg="#ffd6e7")
+        frame_direita.config(bg="#ffd6e7")
+
         titulo.config(bg="#ffd6e7", fg="black")
         subtitulo.config(bg="#ffd6e7", fg="black")
         entrada.config(bg="white", fg="black", insertbackground="black")
+        label_contador.config(bg="#ffd6e7", fg="black")
         label_humor.config(bg="#ffd6e7", fg="black")
-
-
 
 
 def mostrar_humor():
     label_humor.config(text=random.choice(humores))
-
 
 
 def ver_historico():
@@ -57,18 +67,28 @@ def ver_historico():
     os.makedirs(pasta, exist_ok=True)
     subprocess.Popen(f'explorer "{pasta}"')
 
+
 def contar_caracteres(event=None):
     texto = entrada.get("1.0", tk.END)
-    label_contador.config(text=f"Caracteres: {len(texto)-1}")
+    label_contador.config(text=f"Caracteres: {len(texto) - 1}")
 
 
-    
 # JANELA
 janela = tk.Tk()
 janela.title("🌸 meu diarinho")
-janela.geometry("420x500")
+janela.geometry("700x420")
 janela.configure(bg="#ffd6e7")
 
+# TÍTULO
+titulo = tk.Label(
+    janela,
+    text="Bem-vinda ao seu diarinho 💖",
+    bg="#ffd6e7",
+    font=("Segoe Print", 16, "bold")
+)
+titulo.pack(pady=15)
+
+# FRAME PRINCIPAL
 frame_principal = tk.Frame(janela, bg="#ffd6e7")
 frame_principal.pack(pady=20)
 
@@ -81,29 +101,25 @@ frame_centro.grid(row=0, column=1, padx=20)
 frame_direita = tk.Frame(frame_principal, bg="#ffd6e7")
 frame_direita.grid(row=0, column=2, padx=20)
 
-
-# TÍTULO
-titulo = tk.Label(
-    janela,
-    text="Bem-vinda ao seu diarinho 💖",
-    bg="#ffd6e7",
-    font=("Segoe Print", 16, "bold")
+# ESQUERDA - BOTÃO TEMA
+botao_tema = tk.Button(
+    frame_esquerda,
+    text="Tema",
+    command=alternar_tema
 )
-titulo.pack(pady=15)
+botao_tema.pack(pady=20)
 
-
-# SUBTÍTULO
+# CENTRO - SUBTÍTULO
 subtitulo = tk.Label(
-    janela,
+    frame_centro,
     text="Como você está se sentindo?",
     bg="#ffd6e7",
     font=("Segoe Print", 11)
 )
 subtitulo.pack(pady=5)
 
-
 # ENTRADA
- entrada = tk.Text(
+entrada = tk.Text(
     frame_centro,
     height=10,
     width=35,
@@ -111,15 +127,19 @@ subtitulo.pack(pady=5)
 )
 entrada.pack(pady=10)
 entrada.bind("<KeyRelease>", contar_caracteres)
+
+# CONTADOR
+label_contador = tk.Label(
+    frame_centro,
+    text="Caracteres: 0",
+    bg="#ffd6e7",
+    font=("Segoe Print", 10)
 )
-
-
-label_contador = tk.Label(janela, text="Caracteres: 0", bg="#ffd6e7")
 label_contador.pack()
 
 # BOTÃO SALVAR
 botao_salvar = tk.Button(
-    janela,
+    frame_centro,
     text="Salvar",
     command=salvar,
     bg="#ff8fb1",
@@ -128,44 +148,27 @@ botao_salvar = tk.Button(
 )
 botao_salvar.pack(pady=10)
 
-
-# BOTÃO TEMA
-botao_tema = tk.Button(
-    janela,
-    text="Tema",
-    command=alternar_tema
-)
-botao_tema.pack(pady=5)
-
-
-
-
-# HUMOR DO DIA
+# DIREITA - HUMOR DO DIA
 humores = ["😊 Feliz", "😴 Cansada", "🤔 Pensativa", "💪 Motivada", "🌈 Leve"]
 
 label_humor = tk.Label(
-    janela,
+    frame_direita,
     text="",
     bg="#ffd6e7",
     font=("Segoe Print", 11)
 )
 label_humor.pack(pady=5)
 
-
-# BOTÃO HUMOR
 botao_humor = tk.Button(
-    janela,
+    frame_direita,
     text="Humor do dia",
     command=mostrar_humor,
     bg="#ffc0cb"
 )
 botao_humor.pack(pady=5)
 
-
-
-
 botao_historico = tk.Button(
-    janela,
+    frame_direita,
     text="Ver histórico",
     command=ver_historico,
     bg="#ffc0cb"
