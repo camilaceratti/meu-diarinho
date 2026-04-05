@@ -2,7 +2,7 @@
 
 só um testezinho em phyton pra salvar texto com data e treinar interface
 
-roda com python diario_app.py
+roda com python app.py
 
 o que ele faz
 
@@ -16,4 +16,4 @@ como você está hoje?
 
 feliz e cansada
 
-💌 registrado amore
+💌 registrado. até mais
