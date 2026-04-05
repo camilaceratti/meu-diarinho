@@ -75,7 +75,7 @@ titulo = tk.Label(
     janela,
     text="Bem-vinda ao seu diarinho 💖",
     bg="#ffd6e7",
-    font=("Arial", 16)
+    font=("Segoe Print", 16, "bold")
 )
 titulo.pack(pady=15)
 
@@ -85,7 +85,7 @@ subtitulo = tk.Label(
     janela,
     text="Como você está se sentindo?",
     bg="#ffd6e7",
-    font=("Arial", 11)
+    font=("Segoe Print", 11)
 )
 subtitulo.pack(pady=5)
 
@@ -95,7 +95,7 @@ entrada = tk.Text(
     janela,
     height=10,
     width=35,
-    font=("Arial", 11)
+    font=("Segoe Print", 11)
 )
 entrada.pack(pady=10)
 entrada.bind("<KeyRelease>", contar_caracteres)
@@ -110,7 +110,7 @@ botao_salvar = tk.Button(
     command=salvar,
     bg="#ff8fb1",
     fg="white",
-    font=("Arial", 11)
+    font=("Segoe Print", 11)
 )
 botao_salvar.pack(pady=10)
 
@@ -133,7 +133,7 @@ label_humor = tk.Label(
     janela,
     text="",
     bg="#ffd6e7",
-    font=("Arial", 11)
+    font=("Segoe Print", 11)
 )
 label_humor.pack(pady=5)
 
