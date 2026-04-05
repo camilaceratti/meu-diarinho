@@ -45,14 +45,23 @@ def alternar_tema():
         label_humor.config(bg="#ffd6e7", fg="black")
 
 
+
+
 def mostrar_humor():
     label_humor.config(text=random.choice(humores))
+
 
 
 def ver_historico():
     pasta = "historico"
     os.makedirs(pasta, exist_ok=True)
     subprocess.Popen(f'explorer "{pasta}"')
+
+def contar_caracteres(event=None):
+    texto = entrada.get("1.0", tk.END)
+    label_contador.config(text=f"Caracteres: {len(texto)-1}")
+
+
     
 # JANELA
 janela = tk.Tk()
@@ -87,9 +96,12 @@ entrada = tk.Text(
     height=10,
     width=35,
     font=("Arial", 11)
-)
-entrada.pack(pady=10)
 
+entrada.pack(pady=10)
+entrada.bind("<KeyRelease>", contar_caracteres)
+
+label_contador = tk.Label(janela, text="Caracteres: 0", bg="#ffd6e7")
+label_contador.pack()
 
 # BOTÃO SALVAR
 botao_salvar = tk.Button(
@@ -112,6 +124,8 @@ botao_tema = tk.Button(
 botao_tema.pack(pady=5)
 
 
+
+
 # HUMOR DO DIA
 humores = ["😊 Feliz", "😴 Cansada", "🤔 Pensativa", "💪 Motivada", "🌈 Leve"]
 
@@ -132,6 +146,9 @@ botao_humor = tk.Button(
     bg="#ffc0cb"
 )
 botao_humor.pack(pady=5)
+
+
+
 
 botao_historico = tk.Button(
     janela,
