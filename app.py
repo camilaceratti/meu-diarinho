@@ -17,3 +17,21 @@ def alternar_tema():
       
 botao_tema = tk.Button(janela, text="Tema", command=alternar_tema)
 botao_tema.pack(pady=5)
+
+import random
+
+humores = ["😊 Feliz", "😴 Cansada", "🤔 Pensativa", "💪 Motivada", "🌈 Leve"]
+
+label_humor = tk.Label(janela, text="", bg="#ffd6e7", font=("Arial", 11))
+label_humor.pack(pady=5)
+
+def mostrar_humor():
+    label_humor.config(text=random.choice(humores))
+
+botao_humor = tk.Button(
+    janela,
+    text="Humor do dia",
+    command=mostrar_humor,
+    bg="#ffc0cb"
+)
+botao_humor.pack(pady=5)
