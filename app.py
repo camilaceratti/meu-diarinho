@@ -3,6 +3,7 @@ from tkinter import messagebox
 import datetime
 import os
 import random
+import subprocess
 
 tema_escuro = False
 
@@ -48,6 +49,11 @@ def mostrar_humor():
     label_humor.config(text=random.choice(humores))
 
 
+def ver_historico():
+    pasta = "historico"
+    os.makedirs(pasta, exist_ok=True)
+    subprocess.Popen(f'explorer "{pasta}"')
+    
 # JANELA
 janela = tk.Tk()
 janela.title("🌸 meu diarinho")
@@ -127,5 +133,12 @@ botao_humor = tk.Button(
 )
 botao_humor.pack(pady=5)
 
+botao_historico = tk.Button(
+    janela,
+    text="Ver histórico",
+    command=ver_historico,
+    bg="#ffc0cb"
+)
+botao_historico.pack(pady=5)
 
 janela.mainloop()
