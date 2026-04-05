@@ -69,6 +69,18 @@ janela.title("🌸 meu diarinho")
 janela.geometry("420x500")
 janela.configure(bg="#ffd6e7")
 
+frame_principal = tk.Frame(janela, bg="#ffd6e7")
+frame_principal.pack(pady=20)
+
+frame_esquerda = tk.Frame(frame_principal, bg="#ffd6e7")
+frame_esquerda.grid(row=0, column=0, padx=20)
+
+frame_centro = tk.Frame(frame_principal, bg="#ffd6e7")
+frame_centro.grid(row=0, column=1, padx=20)
+
+frame_direita = tk.Frame(frame_principal, bg="#ffd6e7")
+frame_direita.grid(row=0, column=2, padx=20)
+
 
 # TÍTULO
 titulo = tk.Label(
@@ -92,13 +104,16 @@ subtitulo.pack(pady=5)
 
 # ENTRADA
 entrada = tk.Text(
-    janela,
+ entrada = tk.Text(
+    frame_centro,
     height=10,
     width=35,
     font=("Segoe Print", 11)
 )
 entrada.pack(pady=10)
 entrada.bind("<KeyRelease>", contar_caracteres)
+)
+
 
 label_contador = tk.Label(janela, text="Caracteres: 0", bg="#ffd6e7")
 label_contador.pack()
