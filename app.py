@@ -96,7 +96,7 @@ entrada = tk.Text(
     height=10,
     width=35,
     font=("Arial", 11)
-
+)
 entrada.pack(pady=10)
 entrada.bind("<KeyRelease>", contar_caracteres)
 
