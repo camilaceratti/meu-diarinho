@@ -103,7 +103,6 @@ subtitulo.pack(pady=5)
 
 
 # ENTRADA
-entrada = tk.Text(
  entrada = tk.Text(
     frame_centro,
     height=10,
