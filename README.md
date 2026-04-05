@@ -1,6 +1,13 @@
 🌸 meu diarinho
 
-só um testezinho em phyton pra salvar texto com data e treinar interface
+só um testezinho em phyton com tkinter pra salvar texto com data e treinar interface
+
+funcionalidades:
+- salvar texto com data
+- ver histórico
+- humor do dia
+- tema claro e escuro
+- contador de caracteres
 
 roda com python app.py
 
