@@ -1,26 +1,24 @@
-🌸 meu diarinho
+Projeto simples em python com tkinter pra salvar texto com data e treinar interface.
 
-só um testezinho em python com tkinter pra salvar texto com data e treinar interface
-
-funcionalidades:
+Funcionalidades:
 - salvar texto com data
 - ver histórico
 - humor do dia
 - tema claro e escuro
 - contador de caracteres
 
-roda com python app.py
+Roda com:
+bash
+python app.py
 
-o que ele faz
 
-você escreve como tá se sentindo
-ele salva com a data no diario.txt
+A simple Python project using Tkinter to practice building interfaces and saving text with dates.
+Features:
+- save text with date
+- view history
+- daily mood tracking
+- light and dark theme
+- character counter
 
-exemplo
-
-🌸 Bem-vinda ao seu Diarinho
-como você está hoje?
-
-feliz e cansada
-
-💌 registrado. até mais
+How to run:
+python app.py
